@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/widgets/home_form.dart';
+import 'package:flutter_application_2/widgets/input_form.dart';
 
 class InputPage extends StatelessWidget {
   InputPage({super.key});
@@ -21,7 +21,7 @@ class InputPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              HomeForm(
+              InputForm(
                 label: 'Ingrese su nombre',
                 icon: Icons.person,
                 controller: nombreController,
@@ -35,7 +35,7 @@ class InputPage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              HomeForm(
+              InputForm(
                 label: 'Ingrese una contraseña',
                 icon: Icons.password,
                 obscureText: true,

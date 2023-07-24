@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomeForm extends StatefulWidget {
-    HomeForm({
+class InputForm extends StatefulWidget {
+    InputForm({
     super.key,
     required this.label,
     required this.icon,
@@ -23,10 +23,10 @@ class HomeForm extends StatefulWidget {
   final String? Function(String?) validator;
 
   @override
-  State<HomeForm> createState() => _HomeFormState();
+  State<InputForm> createState() => _InputFormState();
 }
 
-class _HomeFormState extends State<HomeForm> {
+class _InputFormState extends State<InputForm> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
