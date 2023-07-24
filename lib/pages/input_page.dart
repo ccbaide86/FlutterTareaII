@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/widgets/input_form.dart';
+import 'package:flutter_application_2/shared/rutas_constantes.dart';
 
 class InputPage extends StatelessWidget {
   InputPage({super.key});
@@ -12,7 +14,9 @@ class InputPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: const Icon(Icons.person),
         title: const Text('Login'),
+        backgroundColor: Colors.black,
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -21,6 +25,15 @@ class InputPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              const CircleAvatar(
+                radius: 60,
+                backgroundImage: CachedNetworkImageProvider(
+                  "https://esports.as.com/2020/01/08/aLexBY11.jpg?hash=bebf569a488c2b210c2fab63f9a92fac50e53da2"
+                  ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               InputForm(
                 label: 'Ingrese su nombre',
                 icon: Icons.person,
@@ -51,27 +64,30 @@ class InputPage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
+              OutlinedButton(
+                
+              onPressed: () {
+              Navigator.pushNamed(context, Rutas.inicio.name);
+        },
+        child: const Text('Confirmar', style: TextStyle(color: Colors.black),),
+      ),
               const Spacer(),
             ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          getInputValue();
-        },
-        child: const Icon(Icons.edit),
-      ),
+      //Aqui
     );
   }
 
-  getInputValue() {
+  /*getInputValue() {
     if (formKey.currentState!.validate()) {
       final data = {
         'nombre': nombreController.text,
         'contrasenia': contraseniaController.text,
       };
-      print(data);
+    print(data);
+      
     }
-  }
+  }*/
 }

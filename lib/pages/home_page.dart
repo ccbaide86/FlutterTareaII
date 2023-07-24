@@ -8,7 +8,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HOME'),
+        backgroundColor: Colors.black,
+        title: const Text('Home'),
       ),
       body: SizedBox(
         width: double.infinity,
@@ -17,14 +18,10 @@ class HomePage extends StatelessWidget {
             OutlinedButton(
               onPressed: () =>
                   Navigator.pushNamed(context, Rutas.inputsPage.name),
-              child: const Text('HOME'),
+              child: const Text('¡Bienvenido a la pagina de inicio!', style: TextStyle(color: Colors.black),),
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
       ),
     );
   }
