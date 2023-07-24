@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/pages/home_page.dart';
+import 'package:flutter_application_2/shared/rutas.dart';
+import 'package:flutter_application_2/shared/rutas_constantes.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,7 +13,8 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      initialRoute: Rutas.inputsPage.name,
+      routes: rutas,
     );
   }
 }
