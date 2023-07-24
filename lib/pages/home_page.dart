@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
           children: [
             OutlinedButton(
               onPressed: () =>
-                  Navigator.pushNamed(context, Rutas.inputsPage.name),
+                  Navigator.pushNamed(context, Rutas.inputsPage.name),//Este boton te redirige al Login
               child: const Text('¡Bienvenido a la pagina de inicio!', style: TextStyle(color: Colors.black),),
             ),
           ],
