@@ -1,12 +1,12 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/widgets/input_form.dart';
 import 'package:flutter_application_2/shared/rutas_constantes.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class InputPage extends StatelessWidget {
   InputPage({super.key});
 
-  final nombreController = TextEditingController();
+  final correoController = TextEditingController();
   final contraseniaController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
@@ -26,7 +26,8 @@ class InputPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               const CircleAvatar(
-                radius: 60,
+                backgroundColor: Colors.black,
+                radius: 70,
                 backgroundImage: CachedNetworkImageProvider(
                   "https://esports.as.com/2020/01/08/aLexBY11.jpg?hash=bebf569a488c2b210c2fab63f9a92fac50e53da2"
                   ),
@@ -35,12 +36,12 @@ class InputPage extends StatelessWidget {
                 height: 10,
               ),
               InputForm(
-                label: 'Ingrese su nombre',
+                label: 'Ingrese su correo',
                 icon: Icons.person,
-                controller: nombreController,
+                controller: correoController,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Ingrese un nombre';
+                    return 'Ingrese un correo';
                   }
                   return null;
                 },
@@ -55,7 +56,7 @@ class InputPage extends StatelessWidget {
                 mostrarBoton: true,
                 controller: contraseniaController,
                 validator: (value) {
-                  if (value!.length < 6) {
+                  if (value!.isEmpty) {
                     return 'Ingrese una contraseña valida';
                   }
                   return null;
@@ -64,10 +65,10 @@ class InputPage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              OutlinedButton(
-                
+              OutlinedButton(   
               onPressed: () {
-              Navigator.pushNamed(context, Rutas.inicio.name);
+              //Navigator.pushNamed(context, Rutas.inicio.name);
+              getInputValue(context);
         },
         child: const Text('Confirmar', style: TextStyle(color: Colors.black),),
       ),
@@ -76,18 +77,21 @@ class InputPage extends StatelessWidget {
           ),
         ),
       ),
-      //Aqui
     );
+}
+//Funcion
+getInputValue(BuildContext context){
+if(formKey.currentState!.validate()){
+  if(correoController.text == "cbaide@unah.hn" && contraseniaController.text == "20192000521"){
+      Navigator.pushNamed(context, Rutas.inicio.name);
+  }else{
+      ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text("Correo y/o contraseña incorrectas"),
+        duration: Duration(seconds: 3),
+        ),
+      );
   }
-
-  /*getInputValue() {
-    if (formKey.currentState!.validate()) {
-      final data = {
-        'nombre': nombreController.text,
-        'contrasenia': contraseniaController.text,
-      };
-    print(data);
-      
-    }
-  }*/
+}
+} 
 }
