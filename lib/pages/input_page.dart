@@ -79,7 +79,7 @@ class InputPage extends StatelessWidget {
       ),
     );
 }
-//Funcion
+//Funcion de Validacion 
 getInputValue(BuildContext context){
 if(formKey.currentState!.validate()){
   if(correoController.text == "cbaide@unah.hn" && contraseniaController.text == "20192000521"){
@@ -87,8 +87,8 @@ if(formKey.currentState!.validate()){
   }else{
       ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text("Correo y/o contraseña incorrectas"),
-        duration: Duration(seconds: 3),
+        content: Text("¡Credenciales incorrectas!"),
+        duration: Duration(seconds: 1),
         ),
       );
   }
