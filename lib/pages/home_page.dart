@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/shared/rutas_constantes.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class HomePage extends StatelessWidget {
